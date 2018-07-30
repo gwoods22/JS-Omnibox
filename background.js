@@ -10,4 +10,7 @@ chrome.omnibox.onInputChanged.addListener(
 chrome.omnibox.onInputEntered.addListener(
   function(text) {
     chrome.tabs.executeScript(null, {code: text});
+    chrome.tabs.executeScript(null, { file: "jquery.js" }, function() {
+      chrome.tabs.executeScript(null, {code: text});
+    });
   });
